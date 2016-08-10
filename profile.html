@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<title>Hospital Appointment</title>
+<!---- dropdown menu style--->
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+<!---- dropdown menu style--->
+
+<meta charset="utf-8">
+<meta charset="utf-8">
+<link rel="stylesheet" href="themes/123.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/123.css" rel="stylesheet" type="text/css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script>
+  function checklogin(){
+	  var sname = window.sessionStorage.getItem("username");
+  if ( sname == undefined){
+	  alert("You are not logged in, Redirect to Login Page...");
+	  window.location.replace("login.html");
+	  document.getElementById("result").innerHTML = sessionStorage.getItem("username");
+	  }else{
+	document.getElementById("uname").innerHTML = sname;
+	document.getElementById("uname1").innerHTML = "Welcome " + sname;
+	document.getElementById("result").innerHTML = "Welcome " + sname;
+	};
+  }
+  </script>
+  <script>
+  var cname = window.sessionStorage.getItem("username");
+  function clearstorage(){
+	  sessionStorage.removeItem("username"); 
+	  window.location.replace("login.html");
+	  alert("Logged out ");
+  }	
+  </script>
+
+  
+</head>
+
+<body onload="checklogin()">
+<p>&nbsp;</p>
+<div data-role="page" id="page2" data-add-back-btn="true">
+<div data-role="content" align="center"><a href="#home"><img src="image/sublogo.png" width="300" alt="back to homepage"></a><br>
+<a href="index.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-mini="true">Back</a>
+<label id="uname" name="uname" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left"></label>
+  <div data-role="header">
+    <h3>Profile</h3>
+  </div>
+ 
+
+        <ul data-role="listview" data-inset="true" style="min-width:210px;">
+            <li data-role="list-divider"><label id="uname1"></label></li>
+            <li><a href="changePW.html" rel="external">Change Password</a></li>
+            <li><a href="delete.html" rel="external">Delete Account</a></li>
+            <li onClick="clearstorage()"><a>Logout</a></li>
+        </ul>
+
+
+  <div data-role="content">
+  <h1><p id="result"></p></h1>
+  <h3><p>&nbsp;</p></h3>
+  </div>
+  
+  
+  <div data-role="footer"></div>
+   
+
+</div>
+</div>
+</body>
+</html>

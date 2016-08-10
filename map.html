@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hospital Appointment</title>
+<link rel="stylesheet" href="themes/123.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/123.css" rel="stylesheet" type="text/css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDZOa6QrKHrAhc_hUrx0kOlHZ0yssFt45s"></script>
+<script>
+<!---new google.maps.LatLng(22.2849444,114.1411979),--->
+function initialize()
+{
+var cent = { lat: 22.378652, lng: 114.201265 };
+var cent1 = { lat: 22.398567, lng: 114.212522 };
+var cent2 = { lat: 22.461301, lng: 114.174786 };
+var cent3 = { lat: 114.212522, lng: 114.212522 };
+var cent4 = { lat: 22.398567, lng: 114.212522 };
+
+
+var mapProp = {
+  center:cent,
+  zoom:15,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+var mapProp1 = {
+  center:cent1,
+  zoom:17,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+var mapProp2 = {
+  center:cent2,
+  zoom:17,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };  
+
+
+
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var map1=new google.maps.Map(document.getElementById("googleMap1"),mapProp1);
+var map2=new google.maps.Map(document.getElementById("googleMap2"),mapProp2);
+
+
+
+
+
+var marker=new google.maps.Marker({
+	position:cent,
+	animation:google.maps.Animation.BOUNCE
+	});
+var marker1=new google.maps.Marker({
+	position:cent1,
+	animation:google.maps.Animation.BOUNCE
+	});	
+var marker2=new google.maps.Marker({
+	position:cent2,
+	animation:google.maps.Animation.BOUNCE
+	});
+
+
+	
+marker.setMap(map);
+marker1.setMap(map1);
+marker2.setMap(map2);
+
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+</script>
+
+
+</head>
+<body>
+
+<div data-role="page" id="map" data-add-back-btn="true">
+<div data-role="content" align="center" ><a href="index.html"><img src="image/sublogo.png" width="300" alt="back to homepage"></a>
+<a href="index.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back</a>
+  </div>
+<div data-role="header">
+    <h1>Hospital Locations</h1>
+  </div>
+<div data-role="main" class="ui-content">
+    <form class="ui-filterable">
+      <input id="myFilter" data-type="search" placeholder="Search for Clinics Names">
+    </form>
+    <ul data-role="listview" data-filter="true" data-input="#myFilter" >
+      <li><a href="#Shatin Hospital">Shatin Hospital</a></li>
+      <li><a href="#Prince of Wales Hospital">Prince of Wales Hospital</a></li>
+      <li><a href="#Tai Po Hospital">Tai Po Hospital</a></li>
+
+      <li><div id="googleMap88" style="width:0px;height:0px;"></div></li>
+    </ul>
+  </div>
+  
+<div data-role="panel" id="Prince of Wales Hospital">
+    <h2>Prince of Wales Hospital</h2>
+    <p><div id="googleMap" style="width:240px;height:380px;"></div></p>
+    <p><b>Address : 	30-32 Ngan Shing Street, Shatin, NT</b></p>
+  
+    <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close Map</a>
+  </div>
+
+<div data-role="panel" id="Shatin Hospital">
+    <h2>Shatin Hospital</h2>
+    <p><div id="googleMap1" style="width:240px;height:380px;"></div>
+    <p><b>Address : 33 A Kung Kok Street, Ma On Shan, Shatin, NT</b></p>
+<a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close Map</a>
+  </div>
+  
+   <div data-role="panel" id="Tai Po Hospital">
+    <h2>Tai Po Hospital</h2>
+    <p><div id="googleMap2" style="width:240px;height:380px;"></div></p>
+    <p><b>Address : 9 Chuen On Road, Tai Po, NT</b></p>
+  
+    <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close Map</a>
+  </div>
+
+  
+
+
+  
+
+
+
+
+</body>
+</html>

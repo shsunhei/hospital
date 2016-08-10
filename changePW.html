@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<title>Hospital Appointment</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="themes/123.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/123.css" rel="stylesheet" type="text/css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script>
+  function checkstatus(){
+	  var logininfo = window.sessionStorage.getItem("username");
+  if ( logininfo == undefined){
+	  alert("You are not logged in, Redirect to Login Page...");
+	  //window.location.replace("login.html");
+	  document.getElementById("result").innerHTML = sessionStorage.getItem("username");
+	  }else{
+	document.getElementById("uname").innerHTML =  logininfo;
+	document.getElementById("uname1").innerHTML = "Wellcome " + logininfo;
+	};
+  }
+  </script>
+  <script>
+$(document).ready(function() {
+  $("#update").on('click',function() {
+	var username = window.sessionStorage.getItem("username"); 
+    var email=$("#email").val();
+    var oldpass=$("#oldpass").val();
+	var newpass=$("#newpass").val();
+	
+    var myData = 'email='+email+'&oldpass='+oldpass+'&newpass='+newpass+'&username='+username;
+	 			
+        $.ajax({
+  		  	 url:'changepw', //RewriteEngine changepw.php become change
+  			   type:"PUT",
+           dataType : 'text',
+  			   data:myData,
+        success: function(mymsg){
+			alert(mymsg);
+					if(mymsg == "Changed password")
+					{
+				alert("Password Changed! Redirecting To Profile Page");
+				window.location.replace("profile.html");
+			}
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   });
+});
+</script>
+<script>
+  var cname = window.sessionStorage.getItem("username");
+  function clearstorage(){
+	  sessionStorage.removeItem("username"); 
+	  window.location.replace("login.html");
+	  alert("Logged out " + cname + " .");
+  }	
+  </script>
+</head>
+
+<body onLoad="checkstatus()">
+<div data-role="page" id="page2" data-add-back-btn="true">
+<div data-role="content" align="center"><a href="#home"><img src="image/sublogo.png" width="300" alt="back to homepage"></a>
+<a href="profile.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-inline="false">Back</a>
+<label id="uname" name="uname" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left"></label>
+  <div data-role="header">
+    <h1>Change Password</h1>
+  </div>
+  <div data-role="content"></div>
+  
+Email: <input type="text" id="email"><br>
+Old Password: <input type="password" id="oldpass"><br>
+New Password: <input type="password" id="newpass"><br>
+
+
+<button id="update">Update</button>
+
+
+  
+  
+  <div data-role="footer"></div>
+   
+
+</div>
+</div>
+</body>
+</html>

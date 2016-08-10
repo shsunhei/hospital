@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<title>Hospital Appointment</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="themes/123.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/123.css" rel="stylesheet" type="text/css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <script>
+  function checkPass()
+{
+    var pass1 = document.getElementById('password');
+    var pass2 = document.getElementById('repassword');
+    var message = document.getElementById('pw1');
+    if(pass1.value == pass2.value){
+        message.style.color = "green";
+        message.innerHTML = "Passwords Match!"
+    }else{
+        message.style.color = "red";
+        message.innerHTML = "Password Does Not Match!"
+    }
+}  
+  </script><!--check password-->
+  <script>
+  $(document).ready(function() {	
+$("#submit").on('click',function() {
+    var username=$("#username").val();
+    var pass1=$("#password").val();
+    var pass2=$("#repassword").val();
+	var email=$("#email").val();
+	
+	if(pass1==pass2){
+	}else{
+		alert("Password does not match");
+		
+		//alert("password doesn't match");
+	    return;	
+	}
+    var myData = 'username='+username+'&password='+pass1+"&email="+email; 		
+        $.ajax({
+  		  	 url:'register', //RewriteEngine register.php become register
+  			   type:"POST",
+           dataType : 'text',
+  			   data:myData,
+        success: function(mymsg){
+			alert(mymsg);
+			if (mymsg == "successful")
+			{
+				alert("Registered Successfully, Redirecting To Login Page");
+				window.location.replace("login.html");
+				
+			}     
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            }); 
+});	
+});
+  </script><!--script for register-->
+</head>
+
+<body>
+<div data-role="page" id="page2" data-add-back-btn="true">
+<div data-role="content" align="center"><a href="#home"><img src="image/sublogo.png" width="300" alt="back to homepage"></a>
+<a href="index.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back</a>
+  <div data-role="header">
+    <h1>Register</h1>
+  </div>
+  <div data-role="content"></div>
+  <div>
+  Email: <input type="email" id="email">
+  <label>Username: </label><input type="text" name="username" id="username"></div>
+Password: <input type="password" id="password">
+Repeat Password: <input type="password" id="repassword" onKeyUp="checkPass(); return false;">
+<span id="user11"></span>
+<span id="pw1" class="confirmMessage"></span><br>
+<span id="status"></span>
+<button id="submit">Submit</button>
+  
+  
+  <div data-role="footer">
+   
+  </div>
+</div>
+</div>
+</body>
+</html>

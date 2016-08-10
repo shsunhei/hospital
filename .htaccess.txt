@@ -1,0 +1,7 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteRule ^/?delete$ delete.php
+RewriteRule ^/?register$ register.php
+RewriteRule ^/?changepw$ changepw.php
+RewriteRule ^/?login$ login.php

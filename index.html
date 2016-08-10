@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/123.css" rel="stylesheet" type="text/css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<title>Hospital Appointment</title>
+</head>
+<body>
+<div data-role="page" id="home" data-theme="a">
+  <div data-role="header" ></div>
+  
+    <div data-role="content" align="center"> <img src="image/logo.png" width="447" height="194"></div>
+  
+  <div data-role="content">
+  
+  <ul data-role="listview" data-inset="true">
+	<li><a href="#page1" rel="external"> <img src="image/1.png">Hospital Information </a></li>
+	<li><a href="map.html" rel="external"> <img src="image/2.png">Hospital Locations </a></li>
+	<li><a href="media.html" data-icon="arrow-r"> <img src="image/3.png">Video</a></li>
+	<li><a href="poster.html" data-icon="star" rel="external">  <img src="image/4.png">Gallery</a></li>
+	<li><a href="profile.html" rel="external"> <img src="image/5.png">Profile </a></li>	
+	</ul>	
+  </div>
+  <div data-role="footer">
+    <h4></h4>
+  </div>
+</div>
+
+<!------------------------------page1----------------------------------------->
+
+<div data-role="page" id="page1" data-add-back-btn="true">
+<div data-role="content" align="center"><a href="#home"><img src="image/sublogo.png" width="300" alt="back to homepage"></a>
+<a href="index.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">Back</a></div>
+  <div data-role="header">
+    <h1><span style="font-size:20px">Hospital Information</span></h1>
+  </div>
+  <div data-role="content"></div>
+ <div role="main" class="ui-content">
+    <div class="ui-grid-b" style="height:250px">
+      <div class="ui-block-a" style="height:100%"><a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"><img src="image/hos1.jpg" width="258" height="172" alt="hos1"><br>
+        Prince of Wales Hospital</a></div>
+      <div class="ui-block-b" style="height:100%"><a href="#myPopup1" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"><img src="image/hos2.jpg" width="258" height="172" alt="hos2"><br>
+        Tai Po Hospital</a></div>
+      <div class="ui-block-c" style="height:100%"><a href="#myPopup2" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"><img src="image/hos3.jpg" width="258" height="172" alt="hos3"><br>
+        Shatin Hospital</a></div>
+    </div>
+ </div>
+ 
+    <div data-role="popup" id="myPopup" class="ui-content" style="width:300px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>Side effects:</b> Officially opened in 1984, this acute general hospital serves the Eastern New Territories region. It is the location of the Sir Yue Kong Pao Centre for Cancer and the Lady Pao Children's Cancer Centre, two state-of-the art facilities for cancer treatment, research and education, as well as the Jockey Club Trauma & Emergency Centre, which provides integrated emergency care to patients suffering from traumatic injuries and critical illness, and its outpatient services are supported by the Li Ka Shing Specialist Clinics. In addition, it is the teaching hospital of the Medical Faculty of the Chinese University of Hong Kong, and a midwifery school is attached to it. </p>
+    </div>
+       <div data-role="popup" id="myPopup1" class="ui-content" style="width:300px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>Side effects:</b> The Hospital has been purpose-built to provide assessment, extended-care and integrated rehabilitation services to elderly, chronically-ill and acute psychiatric patients referred to it by other hospitals in the area or from the central infirmary waiting list. It is also one of three designated spinal cord injury (SCI) rehabilitation centres in Hong Kong. The Hospital aims to ensure that its patients receive a continuum of quality patient-centred and holistic care, and to contribute to improving the health of the surrounding community. To these ends, it collaborates with other health service providers, carers and community organisations to initiate joint programmes to promote health and long-term care.</p>
+    </div>
+       <div data-role="popup" id="myPopup2" class="ui-content" style="width:300px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>Side effects:</b> Shatin Hospital is a rehabilitation hospital, which commenced service in 1991, with emphasis on medicine and geriatrics, palliative care, surgery, adult psychiatry and psycho-geriatrics. The hospital is equipped with a Sleep Assessment Unit. It also provides community outreach services in psychiatry.</p>
+      <p>&nbsp;</p>
+    </div>
+
+
+    
+  
+  <div data-role="footer">
+    <h4></h4>
+</div>
+<!---------------------------------page1------------------------------>
+
+
+
+<div data-role="page" id="page2">
+<div data-role="content" align="center"><a href="#home"><img src="image/sublogo.png" width="300" alt="back to homepage"></a>
+  <div data-role="header">
+    <h1>page2</h1>
+  </div>
+  <div data-role="content">page2</div>
+  <div data-role="footer">
+    <h4>page2</h4>
+  </div>
+</div>
+</div>
+
+
+
+
+
+</body>
+</html>
